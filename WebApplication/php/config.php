@@ -14,3 +14,5 @@ $dbname = "janingpo_lisakun";
 /* Attempt to connect to MySQL database */
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 $conn = new mysqli($servername, $username, $password, $dbname);
+
+?>
