@@ -66,11 +66,11 @@
                                 <i class="fas fa-table"></i>Check Medication</a>
                         </li>
                         <li>
-                            <a href="form.html">
+                            <a href="register.php">
                                 <i class="far fa-check-square"></i>Register Kids</a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="scheduler/index.php">
                                 <i class="fas fa-calendar-alt"></i>Scheduler</a>
                         </li>
                         <li>
@@ -105,7 +105,7 @@
                               <i class="fas fa-table"></i>Check Medication</a>
                       </li>
                       <li>
-                          <a href="form.html">
+                          <a href="register.php">
                               <i class="far fa-check-square"></i>Register Kids</a>
                       </li>
                       <li>
@@ -118,7 +118,7 @@
                       </li>
                       <li>
                         <a href="loginFeature/logout.php">
-                            <i class="fas fa-desktop"></i>Logout </a>
+                              <i class="fas fa-desktop"></i>Logout</a>
                       </li>
                     </ul>
                 </nav>

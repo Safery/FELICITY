@@ -19,6 +19,7 @@
     <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
+
     <!-- Bootstrap CSS-->
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
@@ -240,7 +241,7 @@
                               <label for="selectLg" class=" form-control-label">Select Patient:</label>
                           </div>
                           <div class="col-12 col-md-9">
-                              <select name="selectLg" id="selectLg" class="form-control-lg form-control">
+                              <select name="selectLg" id="selectLg" class="form-control-lg form-control" onchange="runTheChanger(this);">
                                   <option>Please select</option>
                                   <?php
                                     $sql = "select patient.first_name, patient.last_name, patient.patient_id FROM patient";
@@ -253,6 +254,59 @@
                               </select>
                           </div>
                       </div>
+                      <div class="container">
+                          <div class="progress progress-striped active" id="progressBarTester">
+                              <div class="bar" style="width: 0%;"></div>
+                          </div>
+                          <div id="pdfViewer">
+                            <embed id = 'pdf' src="db/camper.pdf"></embed>
+                          </div>
+                      </div>
+                      <script>
+                      function runTheChanger(selector){
+
+                        document.getElementById("progressBarTester").style.visibility = "visible";
+                        load();
+                      }
+
+
+                      function load(){
+                        setTimeout(
+                          function() {
+                            document.getElementById("progressBarTester").style.visibility = "hidden";
+                            document.getElementById("pdfViewer").style.visibility = "visible";
+                          }, 8400);
+
+                            var progress = setInterval(function () {
+                            var $bar = $('.bar');
+
+                            if ($bar.width() >= 400) {
+                                clearInterval(progress);
+                                $('.progress').removeClass('active');
+                            } else {
+                                $bar.width($bar.width() + 40);
+                            }
+                            $bar.text($bar.width() / 4 + "%");
+                        }, 800);
+                      }
+
+                      </script>
+                      <style>
+                      @import url('//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css');
+                       .container {
+                          margin-top: 30px;
+                          width: 400px;
+                      }
+
+                      #progressBarTester{
+                        visibility: hidden;
+                      }
+                      #pdfViewer{
+                        visibility: hidden;
+                        width: auto;
+                        height: 800px;
+                      }
+                      </style>
                     </div>
                 </div>
             </div>
