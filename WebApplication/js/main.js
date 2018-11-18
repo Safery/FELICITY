@@ -1276,8 +1276,13 @@
         window.location.href = url;
       }
     });
+<<<<<<< HEAD
+  
+  
+=======
 
 
+>>>>>>> 03b4c621fe1ef91f023e35a67cd08ce36bf8d7d9
   })(jQuery);
 (function ($) {
   // USE STRICT
@@ -1308,7 +1313,11 @@
 
   // Europe Map
   try {
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> 03b4c621fe1ef91f023e35a67cd08ce36bf8d7d9
     var vmap1 = $('#vmap1');
     if(vmap1[0]) {
       vmap1.vectorMap( {
@@ -1327,7 +1336,11 @@
 
   // USA Map
   try {
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> 03b4c621fe1ef91f023e35a67cd08ce36bf8d7d9
     var vmap2 = $('#vmap2');
 
     if(vmap2[0]) {
@@ -1357,7 +1370,11 @@
 
   // Germany Map
   try {
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> 03b4c621fe1ef91f023e35a67cd08ce36bf8d7d9
     var vmap3 = $('#vmap3');
     if(vmap3[0]) {
       vmap3.vectorMap( {
@@ -1372,6 +1389,16 @@
         }
       });
     }
+<<<<<<< HEAD
+    
+  } catch (error) {
+    console.log(error);
+  }
+  
+  // France Map
+  try {
+    
+=======
 
   } catch (error) {
     console.log(error);
@@ -1380,6 +1407,7 @@
   // France Map
   try {
 
+>>>>>>> 03b4c621fe1ef91f023e35a67cd08ce36bf8d7d9
     var vmap4 = $('#vmap4');
     if(vmap4[0]) {
       vmap4.vectorMap( {
@@ -1418,10 +1446,17 @@
   } catch (error) {
     console.log(error);
   }
+<<<<<<< HEAD
+  
+  // Brazil Map
+  try {
+    
+=======
 
   // Brazil Map
   try {
 
+>>>>>>> 03b4c621fe1ef91f023e35a67cd08ce36bf8d7d9
     var vmap6 = $('#vmap6');
     if(vmap6[0]) {
       vmap6.vectorMap( {
@@ -1478,7 +1513,11 @@
   try {
     var jscr1 = $('.js-scrollbar1');
     if(jscr1[0]) {
+<<<<<<< HEAD
+      const ps1 = new PerfectScrollbar('.js-scrollbar1');      
+=======
       const ps1 = new PerfectScrollbar('.js-scrollbar1');
+>>>>>>> 03b4c621fe1ef91f023e35a67cd08ce36bf8d7d9
     }
 
     var jscr2 = $('.js-scrollbar2');
@@ -1516,7 +1555,11 @@
   // USE STRICT
   "use strict";
 
+<<<<<<< HEAD
+  // Dropdown 
+=======
   // Dropdown
+>>>>>>> 03b4c621fe1ef91f023e35a67cd08ce36bf8d7d9
   try {
     var menu = $('.js-item-menu');
     var sub_menu_is_showed = -1;
@@ -1524,7 +1567,11 @@
     for (var i = 0; i < menu.length; i++) {
       $(menu[i]).on('click', function (e) {
         e.preventDefault();
+<<<<<<< HEAD
+        $('.js-right-sidebar').removeClass("show-sidebar");        
+=======
         $('.js-right-sidebar').removeClass("show-sidebar");
+>>>>>>> 03b4c621fe1ef91f023e35a67cd08ce36bf8d7d9
         if (jQuery.inArray(this, menu) == sub_menu_is_showed) {
           $(this).toggleClass('show-dropdown');
           sub_menu_is_showed = -1;
@@ -1575,7 +1622,11 @@
       right_sidebar.removeClass("show-sidebar");
 
     });
+<<<<<<< HEAD
+ 
+=======
 
+>>>>>>> 03b4c621fe1ef91f023e35a67cd08ce36bf8d7d9
 
   // Sublist Sidebar
   try {
@@ -1643,7 +1694,11 @@
   "use strict";
 
   try {
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> 03b4c621fe1ef91f023e35a67cd08ce36bf8d7d9
     $('[data-toggle="tooltip"]').tooltip();
 
   } catch (error) {
@@ -1661,10 +1716,18 @@
         $(this).parent().parent().parent().toggleClass('show-chat-box');
       });
     });
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> 03b4c621fe1ef91f023e35a67cd08ce36bf8d7d9
 
   } catch (error) {
     console.log(error);
   }
 
+<<<<<<< HEAD
 })(jQuery);
+=======
+})(jQuery);
+>>>>>>> 03b4c621fe1ef91f023e35a67cd08ce36bf8d7d9
