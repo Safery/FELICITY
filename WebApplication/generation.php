@@ -177,7 +177,7 @@ require_once "php/config.php";
 
                       </script>
                       <style>
-                      @import url('//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css');
+                    
                        .container {
                           margin-top: 30px;
                           width: 400px;

@@ -144,37 +144,41 @@ require_once "php/config.php";
                               <div class="bar" style="width: 0%;"></div>
                           </div>
                           <div id="pdfViewer">
-                            <table>
+
+
+
+
+
+
+              <table id="mytable" class="table table-bordred table-striped">
+                            <h1 id="tabtitle" >Medication List</h1>
                               <thead>
-                                <tr>
-                                  <th colspan="3">Medication List</th>
-                                </tr>
+
                                 <tr>
                                   <th>Name</th>
-                                  <th colspan="2">In-take Time</th>
+                                  <th >In-take Time</th>
+
+
                                 </tr>
                               </thead>
                               <tbody>
                                 <tr id="one">
                                   <td>Venlafaxine</td>
                                   <td>Noon at 12:00 PM</td>
-                                  <td>
-                                    <i class="far fa-check-square" onClick="clickedButton1()"></i>
-                                  </td>
+
+                                  <td><input type="checkbox" class="checkthis" onClick="clickedButton1()"/></td>
                                 </tr>
                                 <tr id="two">
                                   <td>Chlorapoxide</td>
                                   <td>Evening at 5:00 PM</td>
-                                  <td>
-                                    <i class="far fa-check-square" onClick="clickedButton2()"></i>
-                                  </td>
+
+                                  <td><input type="checkbox" class="checkthis" onClick="clickedButton2()" /></td>
                                 </tr>
                                 <tr id="three">
                                   <td>Peroxide</td>
                                   <td>Before bed at 10:00PM</td>
-                                  <td>
-                                    <i class="far fa-check-square" onClick="clickedButton3()"></i>
-                                  </td>
+
+                                  <td><input type="checkbox" class="checkthis" onClick="clickedButton3()"/></td>
                                 </tr>
                               </tbody>
                             </table>
@@ -205,22 +209,21 @@ require_once "php/config.php";
                             document.getElementById("pdfViewer").style.visibility = "visible";
                           }, 1200);
 
-                            var progress = setInterval(function () {
-                            var $bar = $('.bar');
+                          var progress = setInterval(function () {
+                          var $bar = $('.bar');
 
-                            if ($bar.width() >= 400) {
-                                clearInterval(progress);
-                                $('.progress').removeClass('active');
-                            } else {
-                                $bar.width($bar.width() + 40);
-                            }
-                            $bar.text($bar.width() / 4 + "%");
-                        }, 200);
+                          if ($bar.width() >= 400) {
+                              clearInterval(progress);
+                              $('.progress').removeClass('active');
+                          } else {
+                              $bar.width($bar.width() + 40);
+                          }
+                          $bar.text($bar.width() / 4 + "%");
+                      }, 800);
                       }
 
                       </script>
                       <style>
-                      @import url('//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css');
                        .container {
                           margin-top: 30px;
                           width: 400px;
@@ -239,7 +242,7 @@ require_once "php/config.php";
   box-sizing: border-box;
 }
 
-
+/*
 table {
   text-align: left;
   line-height: 40px;
@@ -287,7 +290,7 @@ td:last-child {
   text-align: right;
   padding-right: 10px;
 }
-
+*/
 .button {
   color: #aaa;
   cursor: pointer;
@@ -310,7 +313,7 @@ td:last-child {
             <!-- END PAGE CONTAINER-->
         </div>
 
-    </div>
+
 
     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>
