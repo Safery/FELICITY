@@ -259,7 +259,40 @@
                               <div class="bar" style="width: 0%;"></div>
                           </div>
                           <div id="pdfViewer">
-                            <embed id = 'pdf' src="db/camper.pdf"></embed>
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th colspan="3">Medication List</th>
+                                </tr>
+                                <tr>
+                                  <th>Name</th>
+                                  <th colspan="2">In-take Time</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr id="one">
+                                  <td>Venlafaxine</td>
+                                  <td>Noon at 12:00 PM</td>
+                                  <td>
+                                    <i class="far fa-check-square" onClick="clickedButton1()"></i>
+                                  </td>
+                                </tr>
+                                <tr id="two">
+                                  <td>Chlorapoxide</td>
+                                  <td>Evening at 5:00 PM</td>
+                                  <td>
+                                    <i class="far fa-check-square" onClick="clickedButton2()"></i>
+                                  </td>
+                                </tr>
+                                <tr id="three">
+                                  <td>Peroxide</td>
+                                  <td>Before bed at 10:00PM</td>
+                                  <td>
+                                    <i class="far fa-check-square" onClick="clickedButton3()"></i>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
                           </div>
                       </div>
                       <script>
@@ -269,13 +302,23 @@
                         load();
                       }
 
+                      function clickedButton1(){
+                        document.getElementById("one").setAttribute("bgcolor", "#00FF00");
+                      }
+                      function clickedButton2(){
+                        document.getElementById("two").setAttribute("bgcolor", "#00FF00");
+                      }
+                      function clickedButton3(){
+                        document.getElementById("three").setAttribute("bgcolor", "#00FF00");
+                      }
+
 
                       function load(){
                         setTimeout(
                           function() {
                             document.getElementById("progressBarTester").style.visibility = "hidden";
                             document.getElementById("pdfViewer").style.visibility = "visible";
-                          }, 8400);
+                          }, 1200);
 
                             var progress = setInterval(function () {
                             var $bar = $('.bar');
@@ -287,7 +330,7 @@
                                 $bar.width($bar.width() + 40);
                             }
                             $bar.text($bar.width() / 4 + "%");
-                        }, 800);
+                        }, 200);
                       }
 
                       </script>
@@ -302,10 +345,78 @@
                         visibility: hidden;
                       }
                       #pdfViewer{
-                        visibility: visible;
-                        width: auto;
-                        height: 800px;
+                        visibility: hidden;
                       }
+
+                      * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+table {
+  text-align: left;
+  line-height: 40px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid #ed1c40;
+  width: 500px;
+  margin: 50px auto;
+  border-radius: .25rem;
+}
+
+thead tr:first-child {
+  background: #ed1c40;
+  color: #fff;
+  border: none;
+}
+
+th:first-child,
+td:first-child {
+  padding: 0 15px 0 20px;
+}
+
+th {
+  font-weight: 500;
+}
+
+thead tr:last-child th {
+  border-bottom: 3px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f2f2f2;
+  cursor: default;
+}
+
+tbody tr:last-child td {
+  border: none;
+}
+
+tbody td {
+  border-bottom: 1px solid #ddd;
+}
+
+td:last-child {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.button {
+  color: #aaa;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-top: -4px;
+}
+
+.edit:hover {
+  color: #0a79df;
+}
+
+.delete:hover {
+  color: #dc2a2a;
+}
                       </style>
                     </div>
                 </div>
