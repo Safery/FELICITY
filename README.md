@@ -32,8 +32,6 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-
 CREATE TABLE `events` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -42,10 +40,6 @@ CREATE TABLE `events` (
   `end` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `medication`
---
-
 CREATE TABLE `medication` (
   `medication_id` int(64) NOT NULL,
   `medication_name` varchar(258) COLLATE utf8_unicode_ci NOT NULL,
@@ -53,19 +47,11 @@ CREATE TABLE `medication` (
   `dosage` varchar(64) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Table structure for table `medication_linker`
---
-
 CREATE TABLE `medication_linker` (
   `medication_id` int(64) NOT NULL,
   `medication_linker_id` int(64) NOT NULL,
   `patient_id` int(64) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Table structure for table `patient`
---
 
 CREATE TABLE `patient` (
   `patient_id` int(64) NOT NULL,
@@ -76,25 +62,11 @@ CREATE TABLE `patient` (
   `age` int(64) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `registration_data`
---
-
 CREATE TABLE `registration_data` (
   `Id` int(100) NOT NULL,
   `patient` text COLLATE utf8_unicode_ci NOT NULL,
   `form` varbinary(6535) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
@@ -103,72 +75,71 @@ CREATE TABLE `users` (
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `users`
---
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `events`
---
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `medication`
---
 ALTER TABLE `medication`
   ADD PRIMARY KEY (`medication_id`);
 
---
--- Indexes for table `medication_linker`
---
 ALTER TABLE `medication_linker`
   ADD PRIMARY KEY (`medication_linker_id`);
 
---
--- Indexes for table `patient`
---
 ALTER TABLE `patient`
   ADD PRIMARY KEY (`patient_id`);
-
---
--- Indexes for table `registration_data`
---
+  
 ALTER TABLE `registration_data`
   ADD PRIMARY KEY (`Id`);
 
---
--- Indexes for table `users`
---
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `events`
---
 ALTER TABLE `events`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
---
--- AUTO_INCREMENT for table `users`
---
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
 ```
 
 Once completed, drop the index.php root directory into your apache server and you are good to go!
+
+
+### How is it working?
+
+Everything is being done via client -> API -> HTTP Endpoint handling by the server -> client respone.
+
+
+Image:
+![](https://d32myzxfxyl12w.cloudfront.net/images/ckeditor_assets/pictures/275/content_rest_api_design.png)
+
+To give you a better prespective, lets look at user authentication. You may notice the following code in each php pages;
+
+```php
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: welcome.php");
+    exit;
+}
+```
+
+It basically checks if there any session variable exists. But how does it get session variable? You have to get authenticated. Looking at the form on login.php you wil see it makes a POST request to the server. The server hands the post request using the following code:
+
+Line 21 on login.php
+```php
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+```
+Following the if statement, the user authentication happens. Once it has been completed and returned true, the POST will send a response back to the AJAX form that sent the request. The form will see the positive response and re-direct the user to the homepage.
+
+line 69 on login.php
+```php
+                            header("location: ../index.php?link=welcome");
+```
+
+Now coming back to the session variable, it will return true and the user will show authenticated in all page. The creation of the session variable was stored in the following line 64,65,66 on login.php
+
+```php
+                            // Store data in session variables
+                            $_SESSION["loggedin"] = true;
+                            $_SESSION["id"] = $id;
+                            $_SESSION["username"] = $username;
+```
