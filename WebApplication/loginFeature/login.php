@@ -1,4 +1,6 @@
 <?php
+session_destroy();
+
 // Initialize the session
 session_start();
 
@@ -64,7 +66,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
-                            header("location: ../index.php");
+                            header("location: ../index.php?link=welcome");
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
