@@ -4271,7 +4271,7 @@ section {
 }
 
 /* ----- Table ----- */
-.table {
+ #mytable{
   margin: 0;
   min-width: 800px;
   position: relative;

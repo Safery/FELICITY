@@ -1,12 +1,9 @@
 <?php
-
 if(!isset($_GET['link']) || !isset($_GET['link'])){
     header("location: loginFeature/login.php");
     exit;
 }
-
 require_once "php/config.php";
-
 ?>
 
 <!DOCTYPE html>

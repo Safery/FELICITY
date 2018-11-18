@@ -1,7 +1,5 @@
 <?php
-
 require_once "php/config.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -149,22 +147,17 @@ require_once "php/config.php";
                       </div>
                       <script>
                       function runTheChanger(selector){
-
                         document.getElementById("progressBarTester").style.visibility = "visible";
                         load();
                       }
-
-
                       function load(){
                         setTimeout(
                           function() {
                             document.getElementById("progressBarTester").style.visibility = "hidden";
                             document.getElementById("pdfViewer").style.visibility = "visible";
                           }, 8400);
-
                             var progress = setInterval(function () {
                             var $bar = $('.bar');
-
                             if ($bar.width() >= 400) {
                                 clearInterval(progress);
                                 $('.progress').removeClass('active');
@@ -174,15 +167,13 @@ require_once "php/config.php";
                             $bar.text($bar.width() / 4 + "%");
                         }, 800);
                       }
-
                       </script>
                       <style>
-                    
+                      @import url('//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css');
                        .container {
                           margin-top: 30px;
                           width: 400px;
                       }
-
                       #progressBarTester{
                         visibility: hidden;
                       }
