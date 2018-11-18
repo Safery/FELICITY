@@ -1,8 +1,9 @@
-#FELICITY
-###About
+# FELICITY
+
+### About
 What is FELICITY? Felicity means intense happiness. The goal of the application is to provide support to useres of charity 'Camp Quality' by providing efficient way to manage campers medical record including the tracking of users daily medicine. It provides easy to use interface for admins to log into the application, register new campers fast and upload any detailed medical records or other information into respected campers profile. These can later be generated If needed, but the main purpose of the application is to remind the admins of the medication in-take for each campers.
 
-###Features
+### Features
 
 - Session Mangement support for admin of Camp Quality. Thus it prevents any external users accessing any information.
 - Fast and easy management tool to create new campers
