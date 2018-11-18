@@ -74,7 +74,7 @@
                                 <i class="fas fa-calendar-alt"></i>Scheduler</a>
                         </li>
                         <li>
-                          <a href="login.html">
+                          <a href="generation.php">
                                 <i class="fas fa-copy"></i>Report Generation</a>
                         </li>
                         <li class="fas fa-desktop">
@@ -113,7 +113,7 @@
                               <i class="fas fa-calendar-alt"></i>Scheduler</a>
                       </li>
                       <li>
-                        <a href="login.html">
+                        <a href="generation.php">
                               <i class="fas fa-copy"></i>Report Generation</a>
                       </li>
                       <li>
